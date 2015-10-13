@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return  'Hello World!'; //view('welcome');
+});
+
+Route::get('/contact', function(){
+	return view('pages.contact');
 });

@@ -13,6 +13,11 @@ use Auth;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Show all articles.
      *
@@ -40,6 +45,11 @@ class ArticlesController extends Controller
 
     public function create()
     {
+        if(Auth::guest())
+        {
+            return redirect('articles');
+        }
+
         return view('articles.create');
     }
 

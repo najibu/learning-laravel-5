@@ -52,10 +52,20 @@ class Article extends Model
     /**
      * An article is owned by a user.
      *  
-     * @return use Illuminate\Database\Eloquent\Relations\BelongTo
+     * @return use Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
     	return $this->belongsTo('App\User');
+    }
+
+    /**
+     * Get the tags associated with the given article.
+     *  
+     * @return use Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 }

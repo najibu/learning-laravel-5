@@ -32,7 +32,10 @@ class ArticlesController extends Controller
     {
         
     	$articles = Article::latest('published_at')->published()->get();
-    	return view('articles.index')->with('articles', $articles);
+
+        $latest = Article::latest()->first();
+
+    	return view('articles.index', compact('articles', 'latest'));
     }
 
     /**
@@ -92,7 +95,7 @@ class ArticlesController extends Controller
     {
         $article->update($request->all());
 
-        $this->syncTags($article, $request->input('tag_list'));
+        $this->syncTags($article, $request->input('tags_list'));
 
         return redirect('articles');
     }
@@ -102,7 +105,7 @@ class ArticlesController extends Controller
      * @param Article $article 
      * @param array $tags
      */
-    private function syncTags(ArticleRequest $article, array $tags)
+    private function syncTags(Article $article, array $tags)
     {
         $article->tags()->sync($tags);
 
@@ -118,7 +121,7 @@ class ArticlesController extends Controller
     {
         $article = Auth::user()->articles()->create($request->all());
        
-        $article->syncTags($article, $request->input('tag_list'));
+        $article->syncTags($article, $request->input('tags_list'));
 
         return $article;
 

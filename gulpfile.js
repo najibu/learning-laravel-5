@@ -15,9 +15,13 @@ elixir(function(mix) {
     mix.sass('app.scss');
 
     mix.styles([
-    	'vendor/normalize.css',
-    	'app.css'
-    ], null, 'public/css');
+    	'libs/bootstrap.min.css',
+    	'app.css',
+    	'libs/select2.min.css'
+    ]);
 
-    mix.version('public/css/all.css');
+    mix.scripts([
+    	'libs/jquery-1.11.3.min.js',
+    	'libs/select2.min.js'
+    ]);
 });

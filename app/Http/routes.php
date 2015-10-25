@@ -1,5 +1,7 @@
 <?php
 
+Route::get('foo', 'FooController@foo');
+
 Route::get('/', function ()
 {
 	return 'Home Page';

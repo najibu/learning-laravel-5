@@ -1,5 +1,10 @@
 <?php
 
+Route::get('/', function()
+{
+	new Acme\Billing\Billing;
+});
+
 Route::get('foo', 'FooController@foo');
 
 

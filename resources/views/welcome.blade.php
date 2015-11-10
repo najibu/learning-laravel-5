@@ -38,8 +38,10 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Hello Garry</div>
+                <div class="title">Hello Gary</div>
             </div>
+
+            @include('stats')
         </div>
     </body>
 </html>

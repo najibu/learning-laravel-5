@@ -2,7 +2,12 @@
 
 Route::get('/', function()
 {
-	new Acme\Billing\Billing;
+	return view('welcome');
+});
+
+Route::get('other', function()
+{
+	return view('other');
 });
 
 Route::get('foo', 'FooController@foo');

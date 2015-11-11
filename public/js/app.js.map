@@ -1,0 +1,1 @@
+{"version":3,"sources":["module.coffee","moduletwo.coffee"],"names":[],"mappings":"AAAA;EAAA,KAAA,CAAM,SAAN;AAAA;;;ACAA;EAAA,KAAA,CAAM,SAAN;AAAA","file":"app.js","sourcesContent":["Class ModuleOne","Class ModuleTwo"],"sourceRoot":"/source/"}

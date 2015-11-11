@@ -1,0 +1,1 @@
+{"version":3,"sources":["one.js","two.js"],"names":[],"mappings":"AAAA;AACA;ACDA","file":"bar.js","sourcesContent":["var isOfDrinkingAge = (age) => age >= 21;\n","var two = 'two';"],"sourceRoot":"/source/"}

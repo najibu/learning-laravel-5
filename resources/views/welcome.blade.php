@@ -37,9 +37,11 @@
     </head>
     <body>
         <div class="container">
-            <div class="content">
-                <div class="title">Hello Gary</div>
-            </div>
+            <form>
+                <input type="text" name="_token" value="{{ csrf_token() }}">
+                <input type="text" id="search" name="search">
+                <button type="submit">Search</button>
+            </form>
 
             @include('stats')
         </div>

@@ -5,6 +5,10 @@ Route::get('/', function()
 	return view('welcome');
 });
 
+Route::post('search-results', function(){
+	return sprintf('Search results for "%s"', Request::input('search'));
+});
+
 Route::get('other', function()
 {
 	return view('other');

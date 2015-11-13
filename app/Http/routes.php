@@ -5,6 +5,11 @@ Route::get('/', function()
 	return view('welcome');
 });
 
+Route::get('posts', function()
+{
+	return view('posts')->with('posts', App\Post::all());
+});
+
 Route::post('search-results', function(){
 	return sprintf('Search results for "%s"', Request::input('search'));
 });

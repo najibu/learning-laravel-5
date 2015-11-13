@@ -3,9 +3,12 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Post;
 
 class ExampleTest extends TestCase
 {
+    use DatabaseTransactions;
+
     /**
      * A basic functional test example.
      *
@@ -13,11 +16,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-             ->type('some query', '#search')
-             ->press('Search')
-             ->see('Search results for "some query"')
-             ->onPage('/search-results');
+        $post = factory(Post::class)->create();
+
+        $this->visit('posts')
+             ->see($posts->title);
 
     }
 }

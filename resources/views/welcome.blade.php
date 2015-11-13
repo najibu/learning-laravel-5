@@ -37,7 +37,7 @@
     </head>
     <body>
         <div class="container">
-            <form>
+            <form method="POST" action="/search-results">
                 <input type="text" name="_token" value="{{ csrf_token() }}">
                 <input type="text" id="search" name="search">
                 <button type="submit">Search</button>

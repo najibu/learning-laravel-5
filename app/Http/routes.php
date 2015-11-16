@@ -1,5 +1,7 @@
 <?php
 
+event(new App\Events\SomeEvent);
+
 Route::get('/', function()
 {
 	return view('welcome');

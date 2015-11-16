@@ -7,6 +7,11 @@ Route::get('/', function()
 	return view('welcome');
 });
 
+Route::get('admin', [ 'middleware' => 'admin:Gary', function()
+{
+	return 'Hello Gary';
+}]);
+
 Route::get('posts', function()
 {
 	return view('posts')->with('posts', App\Post::all());

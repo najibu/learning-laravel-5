@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Post;
+
 
 class ExampleTest extends TestCase
 {
@@ -16,10 +16,11 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $post = factory(Post::class)->create();
+        $gary = factory('App\User')->create(['username' => 'Gary']);
 
-        $this->visit('posts')
-             ->see($posts->title);
+        $this->actingAs($gary)
+             ->visit('admin')
+             ->see('Hello Gary');
 
     }
 }

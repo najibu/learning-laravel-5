@@ -26,6 +26,6 @@ class EventListener
      */
     public function handle(SomeEvent $event)
     {
-        var_dump('caught the event');
+        //
     }
 }

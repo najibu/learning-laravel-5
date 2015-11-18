@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="/css/all.css">
 </head>
 <body>
-	@include ('partials.nav')
-
+	<!-- @include ('partials.nav')
+ -->
 	<div class="container">
 		@include ('flash::message')
 

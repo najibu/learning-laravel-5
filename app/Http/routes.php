@@ -1,21 +1,40 @@
 <?php
 
+use App\Events\UserHasRegistered;
 
-
-Route::get('/', function()
-{
+get('/', function() {
 	return view('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'Admin::'], function()
-{
-	Route::get('home', ['as' => 'home', function() 
-	{
-		return 'some view';
-	}]);
+get('broadcast', function() {
+	$name = Request::input('name');
+
+	event(new UserHasRegistered($name));
+
+	return 'Done';
 });
 
-dd(route('Admin::home'));
+// Route::get('/', function()
+// {
+// 	return view('welcome');
+// });
+
+// // Authentication routes...
+// Route::get('auth/login', 'Auth\AuthController@getLogin');
+// Route::post('auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+
+
+// Route::group(['prefix' => 'admin', 'as' => 'Admin::'], function()
+// {
+// 	Route::get('home', ['as' => 'home', function() 
+// 	{
+// 		return 'some view';
+// 	}]);
+// });
+
+// dd(route('Admin::home'));
 
 //dd(route('home'));
 

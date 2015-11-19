@@ -48,4 +48,10 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Article');
     }
 
+     public function owns($related)
+    {
+        return $this->id == $related->user_id;
+    }
+
+
 }

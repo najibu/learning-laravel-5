@@ -2,11 +2,13 @@
 
 use App\Events\UserHasRegistered;
 
-Route::resource('posts', 'PostsController');
+// Route::resource('posts', 'PostsController');
 
-// get('/', function() {
-// 	return view('welcome');
-// });
+Route::get('/', function() {
+	Auth::loginUsingId(1);
+
+	return view('welcome');
+});
 
 // get('broadcast', function() {
 // 	$name = Request::input('name');

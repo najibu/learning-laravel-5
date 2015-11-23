@@ -9,9 +9,9 @@
 
         
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <!--<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
+          <style>
             html, body {
                 height: 100%;
             }
@@ -39,12 +39,17 @@
             .title {
                 font-size: 96px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
         <div class="container">
             <div class="content">
                <div class="title">Hello Gary</div>
+                
+                @can('edit_forum')
+                    <a href="#">Edit the Forum</a>
+                @endcan
+
             </div>
 
             <!-- <ul id="users">

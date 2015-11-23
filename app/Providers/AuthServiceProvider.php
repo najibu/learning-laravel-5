@@ -15,6 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // \App\Post::class => \App\Policies\PostPolicy::class
+        'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -30,15 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         foreach ($this->getPermissions() as $permission) 
         {
             $gate->define($permission->name, function($user) use ($permission) {
-                $user->hasRole($permission->roles);
+                return $user->hasRole($permission->roles);
             });
         }
-
-        protected function getPermissions()
-        {
-            return Permission::with('roles')->get();
-        }
-
         
         // $role->define('manager', 'Site Manager');
         // $role->define('editor', 'Site Editor');
@@ -53,5 +48,15 @@ class AuthServiceProvider extends ServiceProvider
         //     return $user->owns($post);
         // });
 
+    }
+
+    /**
+     * Fetch the collection of site permissions.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    protected function getPermissions()
+    {
+        return Permission::with('roles')->get();
     }
 }

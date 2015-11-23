@@ -5,7 +5,7 @@ use App\Events\UserHasRegistered;
 // Route::resource('posts', 'PostsController');
 
 Route::get('/', function() {
-	Auth::loginUsingId(1);
+	Auth::loginUsingId(2);
 
 	return view('welcome');
 });

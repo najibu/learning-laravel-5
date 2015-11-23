@@ -14,7 +14,7 @@ class CreateRolesTables extends Migration
     {
         Schema::create('roles', function(Blueprint $table){
             $table->increments('id');
-            $table->string('name');
+            $table->string('name'); // Manager
             $table->string('label')->nullable(); // Site Manager
             $table->timestamps();
         });
@@ -31,8 +31,7 @@ class CreateRolesTables extends Migration
             $table->integer('role_id')->unsigned();
         
             $table->foreign('permission_id')
-                  ->references('id')
-                  ->on('permissions')
+                  ->references('id')                  ->on('permissions')
                   ->onDelete('cascade');
 
             $table->foreign('role_id')
